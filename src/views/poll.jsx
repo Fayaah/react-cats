@@ -5,9 +5,11 @@ import PollCard from "../components/poll/poll-card";
 function Poll() {
     const [catLeftId, setCatLeftId] = useState('');
     const [catRightId, setCatRightId] = useState('');
-    const catIds = [];
+    let catIds = [];
 
     useEffect(() => {
+        catIds = JSON.parse(localStorage.getItem('catArray')) ? JSON.parse(localStorage.getItem('catArray')) : [];
+
         const left = getCatId();
         const right = getOtherCatId(left);
 
